@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Router, Route } from 'react-router-dom'
 import StreamCreate from './streams/StreamCreate'
 import StreamEdit from './streams/StreamEdit'
 import StreamDelete from './streams/StreamDelete'
@@ -12,15 +12,15 @@ const App = () => {
   return (
     <div className='ui container '>
       <Header />
-      <BrowserRouter history={history}>
+      <Router history={history}>
         <div>
           <Route path='/' exact component={StreamList} />
           <Route path='/streams/new' component={StreamCreate} />
-          <Route path='/streams/Edit' component={StreamEdit} />
-          <Route path='/streams/delete' component={StreamDelete} />
+          <Route path='/streams/edit/:id' component={StreamEdit} />
+          <Route path='/streams/delete/:id' component={StreamDelete} />
           <Route path='/streams/show' component={StreamShow} />
         </div>
-      </BrowserRouter>
+      </Router>
     </div>
   )
 }
