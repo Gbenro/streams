@@ -10,9 +10,16 @@ class StreamDelete extends React.Component {
     this.props.fetchStream(this.props.match.params.id)
   }
   renderActions () {
+    const { id } = this.props.match.params
     return (
       <React.Fragment>
-        <button className='ui button negative'> Delete</button>
+        <button
+          onClick={() => this.props.deleteStream(id)}
+          className='ui button negative'
+        >
+          {' '}
+          Delete
+        </button>
         <Link to='/' className='ui button'>
           Cancel
         </Link>
